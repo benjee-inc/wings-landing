@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "email": "test@example.com",
+    "signedUpAt": "2026-03-30T16:52:04.510Z",
+    "source": "direct"
+  }
+]
