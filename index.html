@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wings — Browse Smarter with AI</title>
+  <meta name="description" content="Wings is a Chrome extension that supercharges your browsing with AI-powered insights, summaries, and actions. Join the waitlist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪽</text></svg>">
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">W</span>
+        <span class="logo-text">Wings</span>
+      </a>
+      <a href="#waitlist" class="nav-cta">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="badge">Chrome Extension &mdash; Coming Soon</div>
+      <h1>Browse smarter.<br>Do more, faster.</h1>
+      <p class="hero-sub">Wings is an AI-powered Chrome extension that gives you instant summaries, smart actions, and contextual insights on every page you visit.</p>
+      <form id="hero-form" class="waitlist-form" action="/api/waitlist" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required autocomplete="email">
+        <button type="submit">Join the Waitlist</button>
+      </form>
+      <p class="hero-note">Free early access. No spam, ever.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>Why you'll love Wings</h2>
+      <p class="section-sub">Powerful features that fit naturally into your browsing workflow.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#9889;</div>
+          <h3>Instant Summaries</h3>
+          <p>Get the key points from any article, document, or webpage in seconds. Stop skimming, start understanding.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128270;</div>
+          <h3>Smart Actions</h3>
+          <p>Extract data, translate content, rewrite text, and take action — all without leaving your tab.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128161;</div>
+          <h3>Contextual Insights</h3>
+          <p>Wings understands what you're looking at and surfaces relevant information, connections, and suggestions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Private by Default</h3>
+          <p>Your browsing data stays yours. Wings processes locally where possible and never sells your data.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9997;&#65039;</div>
+          <h3>Write Anywhere</h3>
+          <p>Compose emails, replies, and messages with AI assistance directly in any text field on the web.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128640;</div>
+          <h3>Lightning Fast</h3>
+          <p>Lightweight and optimized. Wings won't slow down your browser — it speeds up your workflow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="section-sub">Three steps to a smarter browsing experience.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Install the extension</h3>
+          <p>Add Wings to Chrome in one click. No configuration needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Browse as usual</h3>
+          <p>Wings works quietly in the background, ready when you need it.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Activate with a click</h3>
+          <p>Click the Wings icon or use a shortcut to get instant AI assistance on any page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="social-proof" id="social-proof">
+    <div class="container">
+      <h2>People are excited about Wings</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"Finally, an AI tool that fits into how I actually browse the web. Can't wait for this."</p>
+          <div class="testimonial-author">
+            <div class="avatar">S</div>
+            <div>
+              <strong>Sarah K.</strong>
+              <span>Product Manager</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>"I spend hours reading articles for research. Wings is going to save me so much time."</p>
+          <div class="testimonial-author">
+            <div class="avatar">M</div>
+            <div>
+              <strong>Marcus T.</strong>
+              <span>Graduate Researcher</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>"The smart actions feature alone is worth it. Extracting data from web pages is a nightmare without something like this."</p>
+          <div class="testimonial-author">
+            <div class="avatar">J</div>
+            <div>
+              <strong>Jess L.</strong>
+              <span>Data Analyst</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta" id="waitlist">
+    <div class="container">
+      <h2>Be the first to try Wings</h2>
+      <p class="section-sub">Join the waitlist and get early access when we launch.</p>
+      <form id="footer-form" class="waitlist-form" action="/api/waitlist" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required autocomplete="email">
+        <button type="submit">Join the Waitlist</button>
+      </form>
+      <div class="waitlist-count" id="waitlist-count"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">W</span>
+        <span class="logo-text">Wings</span>
+      </div>
+      <p class="footer-copy">&copy; 2026 Wings. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
