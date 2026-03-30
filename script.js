@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Capture UTM parameters from URL
+  function getUtmParams() {
+    const params = new URLSearchParams(window.location.search);
+    const utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(key => {
+      const val = params.get(key);
+      if (val) utm[key] = val;
+    });
+    return Object.keys(utm).length > 0 ? utm : null;
+  }
+
+  const utmParams = getUtmParams();
   const forms = document.querySelectorAll('.waitlist-form');
 
   forms.forEach(form => {
@@ -14,10 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
       button.textContent = 'Joining...';
 
       try {
+        const payload = { email };
+        if (utmParams) payload.utm = utmParams;
+
         const res = await fetch('/api/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify(payload),
         });
 
         const data = await res.json();

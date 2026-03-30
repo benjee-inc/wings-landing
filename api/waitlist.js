@@ -1,3 +1,5 @@
+import { welcomeEmail } from './_email-templates.js';
+
 const REPO = 'benjee-inc/wings-landing';
 const FILE_PATH = 'data/waitlist.json';
 const BRANCH = 'main';
@@ -45,7 +47,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { email } = req.body;
+    const { email, utm } = req.body;
     if (!email || typeof email !== 'string') {
       return res.status(400).json({ error: 'Email is required' });
     }
@@ -69,15 +71,37 @@ export default async function handler(req, res) {
       return res.status(409).json({ error: 'Already on waitlist' });
     }
 
-    emails.push({
+    const entry = {
       email: normalized,
       signedUpAt: new Date().toISOString(),
       source: req.headers.referer || 'direct',
-    });
+    };
+    if (utm && typeof utm === 'object') entry.utm = utm;
+    emails.push(entry);
 
     await updateWaitlistFile(token, emails, sha);
 
     console.log(`WAITLIST_SIGNUP: ${normalized} (total: ${emails.length})`);
+
+    // Send welcome email (fire-and-forget, don't block signup)
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${resendKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Wings <hello@wings-landing.vercel.app>',
+          to: [normalized],
+          subject: welcomeEmail.subject,
+          html: welcomeEmail.html(emails.length),
+        }),
+      })
+        .then(() => console.log(`WELCOME_EMAIL_SENT: ${normalized}`))
+        .catch((err) => console.error(`WELCOME_EMAIL_FAILED: ${normalized}`, err));
+    }
 
     return res.status(200).json({
       success: true,
