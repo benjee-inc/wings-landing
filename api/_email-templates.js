@@ -1,4 +1,4 @@
-const BRAND_COLOR = '#6366f1';
+const BRAND_COLOR = '#10b981';
 const BG_COLOR = '#0a0a0b';
 const SURFACE_COLOR = '#141416';
 const TEXT_COLOR = '#f0f0f2';
@@ -37,7 +37,7 @@ export const welcomeEmail = {
       You're officially on the waitlist${position ? ` at position #${position}` : ''}. We're building something special and you'll be among the first to try it.
     </p>
     <p style="color:${MUTED_COLOR};font-size:16px;line-height:1.6;margin:0 0 24px;">
-      Wings is an AI-powered Chrome extension that gives you instant summaries, smart actions, and contextual insights on every page you visit.
+      Wings is a Chrome extension that adds prediction-market-powered weather insurance to your checkout. Protect your trip for as little as $15 and get up to $250 if it rains — all powered by Solana.
     </p>
     <h2 style="color:${TEXT_COLOR};font-size:18px;margin:0 0 12px;">What to expect:</h2>
     <ul style="color:${MUTED_COLOR};font-size:15px;line-height:1.8;margin:0 0 24px;padding-left:20px;">
@@ -46,9 +46,9 @@ export const welcomeEmail = {
       <li>A chance to shape the product with your feedback</li>
     </ul>
     <p style="color:${MUTED_COLOR};font-size:16px;line-height:1.6;margin:0 0 24px;">
-      In the meantime, help us spread the word! Share Wings with anyone who'd love a smarter browsing experience.
+      In the meantime, help us spread the word! Share Wings with anyone who books trips or shops online.
     </p>
-    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent("Just joined the Wings waitlist — an AI-powered Chrome extension for instant summaries and smart actions. Check it out!")}&url=${encodeURIComponent("https://wings-landing.vercel.app")}" style="display:inline-block;padding:12px 24px;background:${BRAND_COLOR};color:#fff;text-decoration:none;font-weight:bold;font-size:14px;border-radius:8px;">Share on Twitter/X</a>
+    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent("Just joined the Wings waitlist — a Chrome extension that adds weather-based prediction-market insurance to your checkout. Protect your trip, get paid if it rains!")}&url=${encodeURIComponent("https://wings-landing.vercel.app")}" style="display:inline-block;padding:12px 24px;background:${BRAND_COLOR};color:#fff;text-decoration:none;font-weight:bold;font-size:14px;border-radius:8px;">Share on Twitter/X</a>
   `),
 };
 
@@ -65,9 +65,9 @@ export const updateEmail = {
     <div style="background:${BG_COLOR};border-radius:8px;padding:20px;margin:0 0 24px;border:1px solid #2a2a30;">
       <p style="color:${TEXT_COLOR};font-size:15px;margin:0 0 8px;font-weight:bold;">Recent progress:</p>
       <ul style="color:${MUTED_COLOR};font-size:14px;line-height:1.8;margin:0;padding-left:20px;">
-        <li>Instant page summarization engine is live</li>
-        <li>Smart action framework in testing</li>
-        <li>Privacy-first architecture finalized</li>
+        <li>Checkout overlay integration working on major e-commerce sites</li>
+        <li>Solana prediction market contract finalized</li>
+        <li>Weather data pipeline connected to National Weather Service</li>
       </ul>
     </div>
     <p style="color:${MUTED_COLOR};font-size:16px;line-height:1.6;margin:0;">
@@ -84,11 +84,11 @@ export const launchEmail = {
       The day has arrived. Wings is officially available and you have early access!
     </p>
     <p style="color:${MUTED_COLOR};font-size:16px;line-height:1.6;margin:0 0 24px;">
-      As a waitlist member, you get priority access. Install Wings now and start browsing smarter.
+      As a waitlist member, you get priority access. Install Wings now and start protecting your purchases with prediction-market weather insurance.
     </p>
     <a href="https://wings-landing.vercel.app" style="display:inline-block;padding:14px 28px;background:${BRAND_COLOR};color:#fff;text-decoration:none;font-weight:bold;font-size:16px;border-radius:8px;margin-bottom:24px;">Install Wings</a>
     <p style="color:${MUTED_COLOR};font-size:15px;line-height:1.6;margin:24px 0 0;">
-      We'd love to hear your feedback — reply to this email or reach out on Twitter/X. You're helping shape the future of AI-powered browsing.
+      We'd love to hear your feedback — reply to this email or reach out on Twitter/X. You're helping shape the future of checkout insurance.
     </p>
   `),
 };
