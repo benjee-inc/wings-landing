@@ -350,6 +350,24 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; }
   box-shadow: 0 24px 70px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.06);
 }
 
+.preview-label {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  background: var(--orange-light);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin: -8px auto 16px;
+  display: inline-block;
+  width: auto;
+}
+
+.checkout-card { text-align: left; }
+.checkout-card .preview-label { display: block; text-align: center; }
+
 .checkout-header {
   display: flex;
   justify-content: space-between;
