@@ -1,23 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll-triggered animations
+  // Scroll-triggered reveal animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, parseInt(delay));
+        const delay = parseInt(entry.target.dataset.delay || 0);
+        setTimeout(() => entry.target.classList.add('in'), delay);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
 
-  // Nav scroll effect
-  const nav = document.querySelector('.nav');
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+        ticking = false;
+      });
+      ticking = true;
+    }
   }, { passive: true });
 
   // UTM capture
@@ -34,18 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const utmParams = getUtmParams();
 
   // Waitlist form handling
-  document.querySelectorAll('.waitlist-form').forEach(form => {
+  document.querySelectorAll('.cta-form').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const emailInput = form.querySelector('input[name="email"]');
-      const button = form.querySelector('button');
-      const email = emailInput.value.trim();
-
+      const input = form.querySelector('input[name="email"]');
+      const btn = form.querySelector('button');
+      const email = input.value.trim();
       if (!email) return;
 
-      button.disabled = true;
-      const originalHTML = button.innerHTML;
-      button.innerHTML = 'Joining...';
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = 'Joining\u2026';
 
       try {
         const payload = { email };
@@ -57,21 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify(payload),
         });
 
-        const data = await res.json();
-
         if (res.ok || res.status === 409) {
-          const success = document.createElement('div');
-          success.className = 'form-success';
-          success.textContent = res.ok
-            ? "You're on the list! We'll be in touch soon."
-            : "You're already on the waitlist! We'll be in touch soon.";
-          form.replaceWith(success);
+          const msg = document.createElement('div');
+          msg.className = 'form-success';
+          msg.textContent = res.ok
+            ? "You\u2019re on the list. We\u2019ll be in touch."
+            : "You\u2019re already on the waitlist.";
+          form.replaceWith(msg);
         } else {
-          throw new Error(data.error || 'Something went wrong');
+          throw new Error('Failed');
         }
-      } catch (err) {
-        button.disabled = false;
-        button.innerHTML = originalHTML;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = original;
         alert('Something went wrong. Please try again.');
       }
     });

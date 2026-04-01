@@ -21,16 +21,13 @@
   <meta name="twitter:description" content="Chrome extension that adds weather protection to your checkout. Built on Solana prediction markets. Get up to $250 if it rains.">
   <meta name="twitter:image" content="https://wings-landing-gamma.vercel.app/api/og-image">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://wings-landing-gamma.vercel.app">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,287 +46,222 @@
   </script>
 </head>
 <body>
+
   <!-- Nav -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="/" class="logo">
-        <span class="logo-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#10b981"/>
-            <path d="M12 6l-5 3v6l5 3 5-3V9l-5-3z" fill="#fff" opacity="0.9"/>
-          </svg>
-        </span>
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L3 8v12l11 6 11-6V8L14 2z" fill="#0d9373"/>
+          <path d="M14 7L7 11v6l7 4 7-4v-6l-7-4z" fill="#fff" opacity="0.85"/>
+        </svg>
         <span class="logo-text">Wings</span>
       </a>
       <div class="nav-links">
         <a href="#how-it-works">How it works</a>
         <a href="#features">Features</a>
-        <a href="#waitlist" class="nav-cta">Get Early Access</a>
+        <a href="#waitlist" class="nav-cta">Join Waitlist</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-content" data-animate="fade-up">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Chrome Extension on Solana
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content" data-anim>
+          <div class="pill">Waitlist Open</div>
+          <h1>Protect your trip.<br>Get paid if it rains.</h1>
+          <p class="hero-body">Wings is a Chrome extension that adds weather-based trip protection at checkout — powered by Solana prediction markets. Pay as little as $15, get up to $250 back.</p>
+          <form id="hero-form" class="cta-form" action="/api/waitlist" method="POST">
+            <input type="email" name="email" placeholder="you@email.com" required autocomplete="email">
+            <button type="submit">Join Waitlist</button>
+          </form>
+          <p class="hero-caption">Free to join. We'll notify you at launch.</p>
         </div>
-        <h1>Protect your trip.<br><span class="text-gradient">Get $250!</span></h1>
-        <p class="hero-sub">Wings adds weather-based trip protection to your checkout — powered by Solana prediction markets. Pay $15, get up to $250 if it rains.</p>
-        <form id="hero-form" class="waitlist-form" action="/api/waitlist" method="POST">
-          <input type="email" name="email" placeholder="Enter your email" required autocomplete="email">
-          <button type="submit">
-            Join Waitlist
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-        <p class="hero-note">Free early access. No spam, ever.</p>
-      </div>
-      <div class="hero-visual" data-animate="fade-left">
-        <!-- Floating elements -->
-        <div class="float-money float-1">💵</div>
-        <div class="float-money float-2">💰</div>
-        <div class="float-money float-3">💵</div>
-
-        <!-- Mascot area -->
-        <div class="mascot-area">
-          <div class="mascot">
-            <div class="mascot-body">🪙</div>
-            <div class="mascot-umbrella">☂️</div>
-          </div>
-          <p class="mascot-speech">Plus, you're covered if it rains. Lucky you — it's peace of mind!</p>
-        </div>
-
-        <!-- Checkout overlay mockup -->
-        <div class="checkout-card">
-          <div class="preview-label">Preview — Coming Soon</div>
-          <div class="checkout-header">
-            <div class="checkout-location">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a5 5 0 015 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 015-5z" fill="#195154"/><circle cx="8" cy="6" r="2" fill="#fff"/></svg>
-              <span>AUSTIN</span>
+        <div class="hero-card-wrap" data-anim data-delay="150">
+          <div class="product-card">
+            <div class="pc-badge">Preview</div>
+            <div class="pc-header">
+              <div class="pc-location">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1a4.5 4.5 0 014.5 4.5C11.5 8.5 7 13 7 13S2.5 8.5 2.5 5.5A4.5 4.5 0 017 1z" fill="#0f3d3e"/><circle cx="7" cy="5.5" r="1.5" fill="#fff"/></svg>
+                Austin
+              </div>
             </div>
-            <div class="checkout-close">&times;</div>
-          </div>
-          <div class="checkout-total">
-            <span class="checkout-amount">$865.00</span>
-            <span class="checkout-label">Est. Cart Total</span>
-          </div>
-          <div class="checkout-row">
-            <span>Original Total</span>
-            <span class="checkout-price">$850.00</span>
-          </div>
-          <div class="checkout-row checkout-protect">
-            <span class="protect-badge">RAIN-PROTECT <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#10b981" stroke-width="1.5"/><path d="M6 4v3m0 1.5h.01" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            <span class="checkout-add">+$15.00</span>
-          </div>
-          <div class="checkout-divider"></div>
-          <div class="checkout-payout">
-            <div class="payout-icon">🛡️</div>
-            <div>
-              <div class="payout-label">Protection</div>
-              <div class="payout-sub">Potential Payout</div>
+            <div class="pc-total">$865.00</div>
+            <div class="pc-total-label">Est. Cart Total</div>
+            <div class="pc-divider"></div>
+            <div class="pc-row">
+              <span>Original Total</span>
+              <span class="pc-val">$850.00</span>
             </div>
-            <div class="payout-amount">Up to $250.00</div>
+            <div class="pc-row">
+              <span class="pc-protect">Rain-Protect</span>
+              <span class="pc-val pc-green">+$15.00</span>
+            </div>
+            <div class="pc-divider"></div>
+            <div class="pc-payout-row">
+              <div>
+                <div class="pc-payout-label">Protection</div>
+                <div class="pc-payout-sub">Potential Payout</div>
+              </div>
+              <div class="pc-payout-val">Up to $250</div>
+            </div>
+            <div class="pc-cta-wrap">
+              <div class="pc-cta">Sign Up to Claim</div>
+            </div>
+            <p class="pc-fine">Prediction Market Terms apply. Resolves via NWS data.</p>
           </div>
-          <a href="#" class="checkout-terms">View odds & terms</a>
-          <button class="checkout-cta" disabled>Join Waitlist for Early Access</button>
-          <p class="checkout-fine">Prediction Market Terms apply. Contract resolves YES if NWS records >0.5 in. rain.</p>
-          <a href="#" class="checkout-continue">Continue to Checkout &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Logos / trust bar -->
-  <section class="trust-bar" data-animate="fade-up">
-    <div class="container">
-      <p class="trust-label">Built with</p>
-      <div class="trust-logos">
-        <div class="trust-item">
-          <span class="trust-icon">◎</span>
-          <span>Solana</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <span class="trust-icon">🌐</span>
-          <span>Chrome Extension</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <span class="trust-icon">📊</span>
-          <span>Prediction Markets</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <span class="trust-icon">🌦️</span>
-          <span>NWS Weather Data</span>
-        </div>
+  <!-- Trust strip -->
+  <section class="trust-strip">
+    <div class="container trust-inner">
+      <span>Built on</span>
+      <div class="trust-items">
+        <div class="trust-chip"><span class="trust-dot sol"></span>Solana</div>
+        <div class="trust-chip">Chrome Web Store</div>
+        <div class="trust-chip">NWS Weather Data</div>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="how-it-works" id="how-it-works">
+  <section class="section" id="how-it-works">
     <div class="container">
-      <h2 data-animate="fade-up">How Wings works</h2>
-      <p class="section-sub" data-animate="fade-up">Three simple steps to protect any trip purchase.</p>
-      <div class="steps">
-        <div class="step" data-animate="fade-up" data-delay="0">
-          <div class="step-visual">
-            <div class="step-icon">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="18" rx="3" stroke="#195154" stroke-width="2"/><circle cx="28" cy="10" r="6" fill="#10b981"/><path d="M26 10h4m-2-2v4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
-            <div class="step-num">1</div>
-          </div>
+      <p class="section-label" data-anim>How it works</p>
+      <h2 data-anim>Three steps to trip protection</h2>
+      <div class="steps-grid">
+        <div class="step-card" data-anim data-delay="0">
+          <div class="step-number">01</div>
           <h3>Install the extension</h3>
-          <p>Add Wings to Chrome in one click. It activates automatically on checkout pages.</p>
+          <p>Add Wings to Chrome. It activates automatically on supported checkout pages.</p>
         </div>
-        <div class="step-connector" data-animate="fade-up">
-          <svg width="40" height="2"><line x1="0" y1="1" x2="40" y2="1" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4 4"/></svg>
+        <div class="step-card" data-anim data-delay="100">
+          <div class="step-number">02</div>
+          <h3>Add Rain-Protect at checkout</h3>
+          <p>See the Wings overlay with protection options for your destination. One click to add.</p>
         </div>
-        <div class="step" data-animate="fade-up" data-delay="100">
-          <div class="step-visual">
-            <div class="step-icon">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l-2 6h-6l5 4-2 6 5-4 5 4-2-6 5-4h-6l-2-6z" fill="#f59e0b" opacity="0.2"/><path d="M8 14v12h16V14" stroke="#195154" stroke-width="2" stroke-linecap="round"/><path d="M4 14h24" stroke="#195154" stroke-width="2" stroke-linecap="round"/><rect x="12" y="20" width="8" height="6" rx="1" stroke="#10b981" stroke-width="1.5"/></svg>
-            </div>
-            <div class="step-num">2</div>
-          </div>
-          <h3>Add protection at checkout</h3>
-          <p>See the Wings overlay with Rain-Protect for your destination. Add it for just $15.</p>
-        </div>
-        <div class="step-connector" data-animate="fade-up">
-          <svg width="40" height="2"><line x1="0" y1="1" x2="40" y2="1" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4 4"/></svg>
-        </div>
-        <div class="step" data-animate="fade-up" data-delay="200">
-          <div class="step-visual">
-            <div class="step-icon">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#10b981" stroke-width="2"/><path d="M10 16l4 4 8-8" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="step-num">3</div>
-          </div>
+        <div class="step-card" data-anim data-delay="200">
+          <div class="step-number">03</div>
           <h3>Get paid if it rains</h3>
-          <p>If NWS records >0.5" rain at your destination, your payout resolves automatically. Up to $250.</p>
+          <p>If NWS records &gt;0.5" of rain at your location, your contract resolves and you receive up to $250.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Features -->
-  <section class="features" id="features">
+  <section class="section section--dark" id="features">
     <div class="container">
-      <h2 data-animate="fade-up">Why you'll love Wings</h2>
-      <p class="section-sub" data-animate="fade-up">Prediction-market insurance that fits right into your shopping flow.</p>
+      <p class="section-label" data-anim>Why Wings</p>
+      <h2 data-anim>Prediction-market insurance,<br>built into your checkout</h2>
       <div class="features-grid">
-        <div class="feature-card" data-animate="fade-up" data-delay="0">
-          <div class="feature-icon-wrap">
-            <span>🌧️</span>
+        <div class="feature-card" data-anim data-delay="0">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v6l3-3M12 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 14a8 8 0 1016 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 14h.01M12 14h.01M16 14h.01M6 18h.01M10 18h.01M14 18h.01M18 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
-          <h3>Weather Protection</h3>
-          <p>Add Rain-Protect to any trip purchase. If it rains, you get paid — up to $250 on a $15 add-on.</p>
+          <h3>Weather protection</h3>
+          <p>Add Rain-Protect to any trip purchase. $15 add-on, up to $250 payout. Data from the National Weather Service.</p>
         </div>
-        <div class="feature-card" data-animate="fade-up" data-delay="100">
-          <div class="feature-icon-wrap">
-            <span>◎</span>
+        <div class="feature-card" data-anim data-delay="80">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <h3>Solana-Powered</h3>
-          <p>Built on Solana prediction markets for transparent, instant, trustless resolution. Verifiable on-chain.</p>
+          <h3>Instant on-chain resolution</h3>
+          <p>Contracts resolve on Solana — transparent, trustless, verifiable. No claims process, no waiting weeks.</p>
         </div>
-        <div class="feature-card" data-animate="fade-up" data-delay="200">
-          <div class="feature-icon-wrap">
-            <span>🛒</span>
+        <div class="feature-card" data-anim data-delay="160">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h8M8 16h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="19" cy="7" r="4" fill="#0d9373" stroke="#0f3d3e" stroke-width="1"/></svg>
           </div>
-          <h3>Seamless Checkout</h3>
-          <p>Wings overlays directly on your favorite e-commerce sites. One click — no separate app needed.</p>
+          <h3>Seamless checkout overlay</h3>
+          <p>Wings activates on your favorite e-commerce sites. One click to add protection — no separate app or signup.</p>
         </div>
-        <div class="feature-card" data-animate="fade-up" data-delay="300">
-          <div class="feature-icon-wrap">
-            <span>💰</span>
+        <div class="feature-card" data-anim data-delay="240">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 2l2 2-2 2M9 2L7 4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <h3>Instant Payouts</h3>
-          <p>Connect your wallet and receive payouts automatically when your contract resolves. Cash options available.</p>
+          <h3>Digital wallet payout</h3>
+          <p>Connect your wallet. Payouts arrive automatically when the contract resolves in your favor. Cash redemption available.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="section numbers-section">
+    <div class="container numbers-grid" data-anim>
+      <div class="number-block">
+        <div class="number-val">$15</div>
+        <div class="number-label">Protection starts at</div>
+      </div>
+      <div class="number-block">
+        <div class="number-val">$250</div>
+        <div class="number-label">Maximum payout per trip</div>
+      </div>
+      <div class="number-block">
+        <div class="number-val">&lt;1s</div>
+        <div class="number-label">On-chain settlement</div>
+      </div>
+      <div class="number-block">
+        <div class="number-val">0</div>
+        <div class="number-label">Claims paperwork</div>
       </div>
     </div>
   </section>
 
   <!-- Social proof -->
-  <section class="social-proof" id="social-proof">
+  <section class="section section--alt" id="proof">
     <div class="container">
-      <h2 data-animate="fade-up">People are excited</h2>
-      <div class="testimonials">
-        <div class="testimonial" data-animate="fade-up" data-delay="0">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="section-label" data-anim>Early reactions</p>
+      <h2 data-anim>People are excited about Wings</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-anim data-delay="0">
           <p>"Booked a beach trip and added Rain-Protect for $15. It rained the whole weekend — got $250 back. Completely worth it."</p>
-          <div class="testimonial-author">
-            <div class="avatar">A</div>
+          <div class="t-author">
+            <div class="t-avatar">AR</div>
             <div>
-              <strong>Alex R.</strong>
-              <span>Frequent Traveler</span>
+              <div class="t-name">Alex R.</div>
+              <div class="t-role">Frequent Traveler</div>
             </div>
           </div>
         </div>
-        <div class="testimonial" data-animate="fade-up" data-delay="100">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"Love that it sits right in the checkout flow. No separate app, no hassle. Peace of mind for every trip I book online."</p>
-          <div class="testimonial-author">
-            <div class="avatar">D</div>
+        <div class="testimonial-card" data-anim data-delay="80">
+          <p>"Love that it sits right in the checkout flow. No separate app, no hassle. Peace of mind for every trip I book."</p>
+          <div class="t-author">
+            <div class="t-avatar">DM</div>
             <div>
-              <strong>Dana M.</strong>
-              <span>Online Shopper</span>
+              <div class="t-name">Dana M.</div>
+              <div class="t-role">Online Shopper</div>
             </div>
           </div>
         </div>
-        <div class="testimonial" data-animate="fade-up" data-delay="200">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>"On-chain prediction markets for insurance is genius. Way more transparent than traditional travel insurance."</p>
-          <div class="testimonial-author">
-            <div class="avatar">K</div>
+        <div class="testimonial-card" data-anim data-delay="160">
+          <p>"On-chain prediction markets for insurance is brilliant. Way more transparent than anything traditional."</p>
+          <div class="t-author">
+            <div class="t-avatar">KT</div>
             <div>
-              <strong>Kevin T.</strong>
-              <span>Crypto Enthusiast</span>
+              <div class="t-name">Kevin T.</div>
+              <div class="t-role">Crypto Enthusiast</div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="stats" data-animate="fade-up">
-    <div class="container stats-inner">
-      <div class="stat">
-        <div class="stat-value">$15</div>
-        <div class="stat-label">Starting protection</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">$250</div>
-        <div class="stat-label">Max payout per trip</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">&lt;1s</div>
-        <div class="stat-label">On-chain resolution</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">30K+</div>
-        <div class="stat-label">Sites supported</div>
       </div>
     </div>
   </section>
 
   <!-- Final CTA -->
-  <section class="final-cta" id="waitlist">
-    <div class="container" data-animate="fade-up">
-      <h2>Protect your next purchase</h2>
-      <p class="section-sub">Join the waitlist and be first to get weather-powered checkout insurance.</p>
-      <form id="footer-form" class="waitlist-form" action="/api/waitlist" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required autocomplete="email">
-        <button type="submit">
-          Join Waitlist
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+  <section class="section final-cta" id="waitlist">
+    <div class="container final-cta-inner" data-anim>
+      <h2>Join the waitlist</h2>
+      <p class="final-sub">Be the first to get weather-powered checkout insurance when we launch.</p>
+      <form id="footer-form" class="cta-form cta-form--center" action="/api/waitlist" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required autocomplete="email">
+        <button type="submit">Join Waitlist</button>
       </form>
       <div class="waitlist-count" id="waitlist-count"></div>
     </div>
@@ -338,16 +270,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#10b981"/>
-            <path d="M12 6l-5 3v6l5 3 5-3V9l-5-3z" fill="#fff" opacity="0.9"/>
-          </svg>
-        </span>
-        <span class="logo-text">Wings</span>
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L3 8v12l11 6 11-6V8L14 2z" fill="#0d9373"/>
+          <path d="M14 7L7 11v6l7 4 7-4v-6l-7-4z" fill="#fff" opacity="0.85"/>
+        </svg>
+        <span>Wings</span>
       </div>
-      <p class="footer-copy">&copy; 2026 Wings. All rights reserved. Built on Solana.</p>
+      <p>&copy; 2026 Wings. Built on Solana.</p>
     </div>
   </footer>
 
